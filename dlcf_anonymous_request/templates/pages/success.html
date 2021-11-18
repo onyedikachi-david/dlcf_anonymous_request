@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="card text-center">
+{#<div class="container">#}
+	<div class="row text-center">
+        <div class="col-sm-6 col-sm-offset-3">
+        <br><br> <h2 style="color:#0fad00">Success</h2>
+{#        <img src="http://osmhotels.com//assets/check-true.jpg">#}
+          <i class="fas fa-pray"></i>
+
+        <h3>Beloved</h3>
+        <p style="font-size:20px;color:#5C5C5C;">Your prayer request was submitted successfully</p>
+        <a href="{% url 'request-form' %}" class="btn btn-success"> Another Request? </a>
+    <br><br>
+        </div>
+
+	</div>
+
+</div>
+
+{% endblock content %}

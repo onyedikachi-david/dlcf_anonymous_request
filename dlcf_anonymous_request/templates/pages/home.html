@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+  <div class="card text-center">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">It's a broader card with text below as a natural lead-in to extra content. This content is a little longer.</p>
+{#    <a href="#" class="btn btn-primary">Go somewhere</a>#}
+
+<div hx-select=".form-control">
+    <form method="post" action={% url "request-form" %} class="form-control"
+        hx-boost="true"
+        hx-target="this"
+        hx-swap="outerHTML"
+        hx-trigger="once">
+        <hr/>
+
+
+        {% csrf_token %}
+        {{ form|crispy }}
+
+{#        {% if not request.htmx %}#}
+          <input class="btn btn-primary" type="submit" name="Save" />
+{#        {% else %}#}
+{#          <img class="htmx-indicator" src="{% static 'img/three-dots.svg'%}"/>#}
+{#        {% endif %}#}
+    </form>
+  </div>
+  </div>
+  <div class="card-footer text-muted">
+{#    <a>By (David Anyatonwu) w/ Django</a>#}
+     <span>© </span><a href="https://www.linkedin.com/in/david-anyatonwu-79165988">Onyedikachi</a>
+  </div>
+</div>
+{% endblock content %}
